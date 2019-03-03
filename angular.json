@@ -23,9 +23,13 @@
               "src/assets"
             ],
             "styles": [
+              "semantic/dist/semantic.min.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "semantic/dist/semantic.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -58,7 +62,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "my-first-project:build"
+            "browserTarget": "my-first-project:build",
           },
           "configurations": {
             "production": {
