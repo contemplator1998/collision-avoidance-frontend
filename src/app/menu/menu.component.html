@@ -1,0 +1,186 @@
+<div class="ui tiny menu">
+  <div class="left menu">
+    <div class="item" id="run">
+      <div class="ui transparent labeled  button padded" style="margin-right: 37px" (click)="onRunClick()">
+        <i class="play icon"></i>
+        Run
+      </div>
+    </div>
+    <div class="item" style="display: none" id="pause">
+      <div class="ui transparent labeled  button padded" style="margin-right: 27px" (click)="onPauseClick()">
+        <i class="pause icon"></i>
+        Pause
+      </div>
+    </div>
+  </div>
+  <a class="item" id="base" (click)="onBaseClick()">
+    <i class="edit icon"></i>
+    Base
+  </a>
+  <a class="item" id="tool" (click)="onToolClick()">
+    <i class="wrench icon"></i>
+    Tool
+  </a>
+  <a class="item" id="environment" (click)="onEnvironmentClick()">
+    <i class="world icon"></i>
+    Environment
+  </a>
+</div>
+
+<div class="ui modal" id="basemodal">
+  <i class="close icon"></i>
+  <div class="header">
+    Base configuration
+  </div>
+  <div class="ui container" style="padding: 50px">
+    <div class="ui form padded">
+      <div class="three fields">
+        <div class="field">
+          <label>X</label>
+          <input type="text" placeholder="X">
+        </div>
+        <div class="field">
+          <label>Y</label>
+          <input type="text" placeholder="Y">
+        </div>
+        <div class="field">
+          <label>Z</label>
+          <input type="text" placeholder="Z">
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="field">
+          <label>Roll</label>
+          <input type="text" placeholder="Roll">
+        </div>
+        <div class="field">
+          <label>Pitch</label>
+          <input type="text" placeholder="Pitch">
+        </div>
+        <div class="field">
+          <label>Yaw</label>
+          <input type="text" placeholder="Yaw">
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button">
+        Apply changes
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui modal" id="toolmodal">
+  <i class="close icon"></i>
+  <div class="header">
+    Tool configuration
+  </div>
+  <div class="ui container" style="padding: 50px">
+    <div class="ui form padded">
+      <div class="three fields">
+        <div class="field">
+          <label>X</label>
+          <input type="text" placeholder="X">
+        </div>
+        <div class="field">
+          <label>Y</label>
+          <input type="text" placeholder="Y">
+        </div>
+        <div class="field">
+          <label>Z</label>
+          <input type="text" placeholder="Z">
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="field">
+          <label>Roll</label>
+          <input type="text" placeholder="Roll">
+        </div>
+        <div class="field">
+          <label>Pitch</label>
+          <input type="text" placeholder="Pitch">
+        </div>
+        <div class="field">
+          <label>Yaw</label>
+          <input type="text" placeholder="Yaw">
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button">
+        Apply changes
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui modal" id="environmentmodal">
+  <i class="close icon"></i>
+  <div class="header">
+    Adding new collidable object into environment
+  </div>
+  <div class="ui container" style="padding: 50px">
+    <div class="ui form padded">
+      <div class="three fields">
+        <div class="field">
+          <label>X</label>
+          <input type="text" placeholder="X">
+        </div>
+        <div class="field">
+          <label>Y</label>
+          <input type="text" placeholder="Y">
+        </div>
+        <div class="field">
+          <label>Z</label>
+          <input type="text" placeholder="Z">
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="field">
+          <label>Roll</label>
+          <input type="text" placeholder="Roll">
+        </div>
+        <div class="field">
+          <label>Pitch</label>
+          <input type="text" placeholder="Pitch">
+        </div>
+        <div class="field">
+          <label>Yaw</label>
+          <input type="text" placeholder="Yaw">
+        </div>
+      </div>
+      <div class="one field">
+        <div class="field">
+          <label>Collidable type</label>
+          <label>
+            <select class="ui fluid dropdown">
+              <option value="CU">Cube</option>
+              <option value="CA">Capsule</option>
+              <option value="SP">Sphere</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button">
+        Add new object
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
