@@ -1,0 +1,22 @@
+<div class="ui segment parameters-body">
+  <div *ngIf="obstacle">
+
+    <div class="ui container">
+      <ng-container [(ngSwitch)]="obstacle.type">
+        <ng-container *ngSwitchCase="obstacleType.BOX">
+          <box-values [box]="obstacle"></box-values>
+        </ng-container>
+        <ng-container *ngSwitchCase="obstacleType.PLANE">
+          <plane-values [plane]="obstacle"></plane-values>
+        </ng-container>
+        <ng-container *ngSwitchCase="obstacleType.CAPSULE">
+          <capsule-values [capsule]="obstacle"></capsule-values>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <app-empty></app-empty>
+        </ng-container>
+      </ng-container>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="ui container" style="padding: 50px">
+
+  <div class="ui form padded">
+    <div class="one fields">
+      <div class="field">
+        <label>Name</label>
+        <input #nameValue="ngModel" name="name" type="string" placeholder="name" [(ngModel)]="capsule.name">
+      </div>
+    </div>
+
+    <div class="one fields">
+      <div class="field">
+        <label>Radius</label>
+        <input #radiusValue="ngModel" name="radius" type="number" placeholder="radius" [(ngModel)]="capsule.radius">
+      </div>
+    </div>
+
+    <label>First point</label>
+
+    <div class="three fields">
+      <div class="field">
+        <label>X</label>
+        <input #xValue="ngModel" name="x" type="number" placeholder="X" [(ngModel)]="capsule.begin.x">
+      </div>
+      <div class="field">
+        <label>Y</label>
+        <input #yValue="ngModel" name="y" type="number" placeholder="Y" [(ngModel)]="capsule.begin.y">
+      </div>
+      <div class="field">
+        <label>Z</label>
+        <input #zValue="ngModel" name="z" type="number" placeholder="Z" [(ngModel)]="capsule.begin.z">
+      </div>
+    </div>
+
+    <label>Second point</label>
+
+    <div class="three fields">
+      <div class="field">
+        <label>X</label>
+        <input #xValue="ngModel" name="x" type="number" placeholder="X" [(ngModel)]="capsule.end.x">
+      </div>
+      <div class="field">
+        <label>Y</label>
+        <input #yValue="ngModel" name="y" type="number" placeholder="Y" [(ngModel)]="capsule.end.y">
+      </div>
+      <div class="field">
+        <label>Z</label>
+        <input #zValue="ngModel" name="z" type="number" placeholder="Z" [(ngModel)]="capsule.end.z">
+      </div>
+    </div>
+
+  </div>
+</div>

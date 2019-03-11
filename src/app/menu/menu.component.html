@@ -37,39 +37,31 @@
       <div class="three fields">
         <div class="field">
           <label>X</label>
-          <input type="text" placeholder="X">
+          <input #xValue="ngModel" name="x" type="number" placeholder="X" [(ngModel)]="base.point.x">
         </div>
         <div class="field">
           <label>Y</label>
-          <input type="text" placeholder="Y">
+          <input #yValue="ngModel" name="y" type="number" placeholder="Y" [(ngModel)]="base.point.y">
         </div>
         <div class="field">
           <label>Z</label>
-          <input type="text" placeholder="Z">
+          <input #zValue="ngModel" name="z" type="number" placeholder="Z" [(ngModel)]="base.point.z">
         </div>
       </div>
       <div class="three fields">
         <div class="field">
           <label>Roll</label>
-          <input type="text" placeholder="Roll">
+          <input #rollValue="ngModel" name="roll" type="number" placeholder="Roll" [(ngModel)]="base.rotation.roll">
         </div>
         <div class="field">
           <label>Pitch</label>
-          <input type="text" placeholder="Pitch">
+          <input #pitchValue="ngModel" name="pitch" type="number" placeholder="Pitch" [(ngModel)]="base.rotation.pitch">
         </div>
         <div class="field">
           <label>Yaw</label>
-          <input type="text" placeholder="Yaw">
+          <input #yawValue="ngModel" name="yaw" type="number" placeholder="Yaw" [(ngModel)]="base.rotation.yaw">
+
         </div>
-      </div>
-    </div>
-    <div class="actions">
-      <div class="ui black deny button">
-        Cancel
-      </div>
-      <div class="ui positive right labeled icon button">
-        Apply changes
-        <i class="checkmark icon"></i>
       </div>
     </div>
   </div>
@@ -79,46 +71,16 @@
 <div class="ui modal" id="toolmodal">
   <i class="close icon"></i>
   <div class="header">
-    Tool configuration
+    Add tool shape
   </div>
-  <div class="ui container" style="padding: 50px">
-    <div class="ui form padded">
-      <div class="three fields">
-        <div class="field">
-          <label>X</label>
-          <input type="text" placeholder="X">
-        </div>
-        <div class="field">
-          <label>Y</label>
-          <input type="text" placeholder="Y">
-        </div>
-        <div class="field">
-          <label>Z</label>
-          <input type="text" placeholder="Z">
-        </div>
+  <div class="ui container grid">
+    <div class="ui row basic segment">
+      <div class="five wide column" style="padding: 50px">
+        <obstacle-list [(environment)]="toolShape" (activeIndex)="updateToolActive($event)"></obstacle-list>
+        <add-obstacle [(types)]="toolTypes" (commandAdded)="addToolShape()"></add-obstacle>
       </div>
-      <div class="three fields">
-        <div class="field">
-          <label>Roll</label>
-          <input type="text" placeholder="Roll">
-        </div>
-        <div class="field">
-          <label>Pitch</label>
-          <input type="text" placeholder="Pitch">
-        </div>
-        <div class="field">
-          <label>Yaw</label>
-          <input type="text" placeholder="Yaw">
-        </div>
-      </div>
-    </div>
-    <div class="actions">
-      <div class="ui black deny button">
-        Cancel
-      </div>
-      <div class="ui positive right labeled icon button">
-        Apply changes
-        <i class="checkmark icon"></i>
+      <div class="eleven wide stretched column" style="padding: 50px">
+        <app-environment [obstacle]="toolActive"></app-environment>
       </div>
     </div>
   </div>
@@ -130,56 +92,14 @@
   <div class="header">
     Adding new collidable object into environment
   </div>
-  <div class="ui container" style="padding: 50px">
-    <div class="ui form padded">
-      <div class="three fields">
-        <div class="field">
-          <label>X</label>
-          <input type="text" placeholder="X">
-        </div>
-        <div class="field">
-          <label>Y</label>
-          <input type="text" placeholder="Y">
-        </div>
-        <div class="field">
-          <label>Z</label>
-          <input type="text" placeholder="Z">
-        </div>
+  <div class="ui container grid">
+    <div class="ui row basic segment">
+      <div class="five wide column" style="padding: 50px">
+        <obstacle-list [(environment)]="environment" (activeIndex)="updateEnvironmentActive($event)"></obstacle-list>
+        <add-obstacle [(types)]="environmetnTypes" (commandAdded)="addObstacle($event)"></add-obstacle>
       </div>
-      <div class="three fields">
-        <div class="field">
-          <label>Roll</label>
-          <input type="text" placeholder="Roll">
-        </div>
-        <div class="field">
-          <label>Pitch</label>
-          <input type="text" placeholder="Pitch">
-        </div>
-        <div class="field">
-          <label>Yaw</label>
-          <input type="text" placeholder="Yaw">
-        </div>
-      </div>
-      <div class="one field">
-        <div class="field">
-          <label>Collidable type</label>
-          <label>
-            <select class="ui fluid dropdown">
-              <option value="CU">Cube</option>
-              <option value="CA">Capsule</option>
-              <option value="SP">Sphere</option>
-            </select>
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="actions">
-      <div class="ui black deny button">
-        Cancel
-      </div>
-      <div class="ui positive right labeled icon button">
-        Add new object
-        <i class="checkmark icon"></i>
+      <div class="eleven wide stretched column" style="padding: 50px">
+        <app-environment [obstacle]="environmentActive"></app-environment>
       </div>
     </div>
   </div>

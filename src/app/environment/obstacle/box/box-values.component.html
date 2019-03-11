@@ -1,0 +1,57 @@
+<div class="ui container" style="padding: 50px">
+  <div class="ui form padded">
+    <div class="one fields">
+      <div class="field">
+        <label>Name</label>
+        <input #nameValue="ngModel" name="name" type="string" placeholder="name" [(ngModel)]="box.name">
+      </div>
+    </div>
+
+    <label>Center position</label>
+    <div class="three fields">
+      <div class="field">
+        <label>X</label>
+        <input #xValue="ngModel" name="x" type="number" placeholder="X" [(ngModel)]="box.centerPosition.point.x">
+      </div>
+      <div class="field">
+        <label>Y</label>
+        <input #yValue="ngModel" name="y" type="number" placeholder="Y" [(ngModel)]="box.centerPosition.point.y">
+      </div>
+      <div class="field">
+        <label>Z</label>
+        <input #zValue="ngModel" name="z" type="number" placeholder="Z" [(ngModel)]="box.centerPosition.point.z">
+      </div>
+    </div>
+    <div class="three fields">
+      <div class="field">
+        <label>Roll</label>
+        <input #rollValue="ngModel" name="roll" type="number" placeholder="Roll" [(ngModel)]="box.centerPosition.rotation.roll">
+      </div>
+      <div class="field">
+        <label>Pitch</label>
+        <input #pitchValue="ngModel" name="pitch" type="number" placeholder="Pitch" [(ngModel)]="box.centerPosition.rotation.pitch">
+      </div>
+      <div class="field">
+        <label>Yaw</label>
+        <input #yawValue="ngModel" name="yaw" type="number" placeholder="Yaw" [(ngModel)]="box.centerPosition.rotation.yaw">
+
+      </div>
+    </div>
+
+    <label>Axis length</label>
+    <div class="three fields">
+      <div class="field">
+        <label>X length</label>
+        <input #xLValue="ngModel" name="x length" type="number" placeholder="X length" [(ngModel)]="box.axisLength.x">
+      </div>
+      <div class="field">
+        <label>Y length</label>
+        <input #yLValue="ngModel" name="y length" type="number" placeholder="Y length" [(ngModel)]="box.axisLength.y">
+      </div>
+      <div class="field">
+        <label>Z length</label>
+        <input #zLValue="ngModel" name="z length" type="number" placeholder="Z length" [(ngModel)]="box.axisLength.z">
+      </div>
+    </div>
+  </div>
+</div>
