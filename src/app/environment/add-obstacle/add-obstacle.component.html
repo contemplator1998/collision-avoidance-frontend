@@ -1,0 +1,16 @@
+<div class="ui grid container">
+  <div class="five wide column"></div>
+  <div class="six wide center aligned column">
+    <div class="ui bottom pointing dropdown" suiDropdown [(isOpen)]="menuOpened" data-tooltip="Add new">
+      <a><i class="circular icon" [ngClass]="[menuOpened ? 'remove' : 'plus']"></i></a>
+      <div class="menu" suiDropdownMenu>
+        <div *ngFor="let type of types" class="ui labeled icon item" (click)="addCommand(type)">
+          <a class="item">
+            <i class="icon" [ngClass]="icon(type)"></i>
+            <label class="label">{{name(type)}}</label>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
