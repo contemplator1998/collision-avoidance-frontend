@@ -1,0 +1,116 @@
+<div class="ui tiny menu">
+  <div class="left menu">
+    <div class="item" id="run">
+      <div class="ui transparent labeled  button padded" style="margin-right: 37px" (click)="onRunClick()">
+        <i class="play icon"></i>
+        Run
+      </div>
+    </div>
+    <div class="item" style="display: none" id="pause">
+      <div class="ui transparent labeled  button padded" style="margin-right: 27px" (click)="onPauseClick()">
+        <i class="pause icon"></i>
+        Pause
+      </div>
+    </div>
+  </div>
+  <a class="item" id="base" (click)="onBaseClick()">
+    <i class="edit icon"></i>
+    Base
+  </a>
+  <a class="item" id="tool" (click)="onToolClick()">
+    <i class="wrench icon"></i>
+    Tool
+  </a>
+  <a class="item" id="environment" (click)="onEnvironmentClick()">
+    <i class="world icon"></i>
+    Environment
+  </a>
+</div>
+
+<div class="ui modal" id="runmodal">
+  <i class="close icon"></i>
+  <div class="header">
+    Trajectory generation result
+  </div>
+  <div class="field">
+    <textarea #value="ngModel" [(ngModel)]="runResult" ></textarea>
+  </div>
+</div>
+
+<div class="ui modal" id="basemodal">
+  <i class="close icon"></i>
+  <div class="header">
+    Base configuration
+  </div>
+  <div class="ui container" style="padding: 50px">
+    <div class="ui form padded">
+      <div class="three fields">
+        <div class="field">
+          <label>X</label>
+          <input #xValue="ngModel" name="x" type="number" placeholder="X" [(ngModel)]="base.point.x">
+        </div>
+        <div class="field">
+          <label>Y</label>
+          <input #yValue="ngModel" name="y" type="number" placeholder="Y" [(ngModel)]="base.point.y">
+        </div>
+        <div class="field">
+          <label>Z</label>
+          <input #zValue="ngModel" name="z" type="number" placeholder="Z" [(ngModel)]="base.point.z">
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="field">
+          <label>Roll</label>
+          <input #rollValue="ngModel" name="roll" type="number" placeholder="Roll" [(ngModel)]="base.rotation.roll">
+        </div>
+        <div class="field">
+          <label>Pitch</label>
+          <input #pitchValue="ngModel" name="pitch" type="number" placeholder="Pitch" [(ngModel)]="base.rotation.pitch">
+        </div>
+        <div class="field">
+          <label>Yaw</label>
+          <input #yawValue="ngModel" name="yaw" type="number" placeholder="Yaw" [(ngModel)]="base.rotation.yaw">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui modal" id="toolmodal">
+  <i class="close icon"></i>
+  <div class="header">
+    Add tool shape
+  </div>
+  <div class="ui container grid">
+    <div class="ui row basic segment">
+      <div class="five wide column" style="padding: 50px">
+        <obstacle-list [(environment)]="toolShape" (activeIndex)="updateToolActive($event)"></obstacle-list>
+        <add-obstacle [(types)]="toolTypes" (commandAdded)="addToolShape()"></add-obstacle>
+      </div>
+      <div class="eleven wide stretched column" style="padding: 50px">
+        <app-environment [obstacle]="toolActive"></app-environment>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui modal" id="environmentmodal">
+  <i class="close icon"></i>
+  <div class="header">
+    Adding new collidable object into environment
+  </div>
+  <div class="ui container grid">
+    <div class="ui row basic segment">
+      <div class="five wide column" style="padding: 50px">
+        <obstacle-list [(environment)]="environment" (activeIndex)="updateEnvironmentActive($event)"></obstacle-list>
+        <add-obstacle [(types)]="environmentTypes" (commandAdded)="addObstacle($event)"></add-obstacle>
+      </div>
+      <div class="eleven wide stretched column" style="padding: 50px">
+        <app-environment [obstacle]="environmentActive"></app-environment>
+      </div>
+    </div>
+  </div>
+</div>

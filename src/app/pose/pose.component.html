@@ -1,0 +1,48 @@
+<div class="content" style="width: 150px">
+  <div class="ui main container">
+    <div class="ui grid">
+      <div class="ui form one column centered center aligned">
+        <div class="field">
+          <div class="ui label">{{name}} pose</div>
+        </div>
+        <div class="field">
+          <div class="ui grid" style="padding-left: 5px; padding-right: 5px;">
+            <div class="ui one column vertical menu">
+              <div class="item">
+                <div class="ui transparent input centered center aligned padded">
+                  <input #value="ngModel" [(ngModel)]="pose.a1" type="text" style="text-align:center;" placeholder="Joint Angle 1">
+                </div>
+              </div>
+              <div class="item">
+                <div class="ui transparent input">
+                  <input #value="ngModel" [(ngModel)]="pose.a2" type="text" style="text-align:center;" placeholder="Joint Angle 2">
+                </div>
+              </div>
+              <div class="item">
+                <div class="ui transparent input">
+                  <input #value="ngModel" [(ngModel)]="pose.a3" type="text" style="text-align:center;" placeholder="Joint Angle 3">
+                </div>
+              </div>
+              <div class="item">
+                <div class="ui transparent input">
+                  <input #value="ngModel" [(ngModel)]="pose.a4" type="text" style="text-align:center;" placeholder="Joint Angle 4">
+                </div>
+              </div>
+              <div class="item">
+                <div class="ui transparent input">
+                  <input #value="ngModel" [(ngModel)]="pose.a5" type="text" style="text-align:center;" placeholder="Joint Angle 5">
+                </div>
+              </div>
+              <div class="item">
+                <div class="ui transparent input">
+                  <input #value="ngModel" [(ngModel)]="pose.a6" type="text" style="text-align:center;" placeholder="Joint Angle 6">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

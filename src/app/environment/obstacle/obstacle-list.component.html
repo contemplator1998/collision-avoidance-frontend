@@ -1,0 +1,24 @@
+<div *ngIf="environment.length < 1; else obstacleList">
+  <div class="ui vertical fluid menu program-body">
+    <div class="ui centered grid">
+      <h3 class="ui grey tooltip">Empty</h3>
+    </div>
+  </div>
+</div>
+
+<ng-template #obstacleList>
+  <div class="ui scrolling vertical fluid compact menu ">
+    <ng-container [ngTemplateOutlet]="commandsTemplate"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #commandsTemplate>
+  <a *ngFor="let obstacle of environment; let i = index" class="item" id="item-{{i}}" (click)="select(i)">
+    <i class="icon" [ngClass]="'trash'" (click)="remove(i)"></i>
+    <a class="ui right label">
+      <i class="icon" [ngClass]="icon(obstacle.type)"></i>
+      {{i + 1}}
+    </a>
+    {{obstacle.name}}
+  </a>
+</ng-template>
