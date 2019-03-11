@@ -12,12 +12,6 @@
   </div>
 </ng-template>
 
-<ng-template #notDragging>
-  <div class="ui scrolling  vertical fluid menu draggable">
-    <ng-container [ngTemplateOutlet]="commandsTemplate"></ng-container>
-  </div>
-</ng-template>
-
 <ng-template #commandsTemplate>
   <a *ngFor="let obstacle of environment; let i = index" class="item" id="item-{{i}}" (click)="select(i)">
     <i class="icon" [ngClass]="'trash'" (click)="remove(i)"></i>

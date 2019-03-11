@@ -27,6 +27,16 @@
   </a>
 </div>
 
+<div class="ui modal" id="runmodal">
+  <i class="close icon"></i>
+  <div class="header">
+    Trajectory generation result
+  </div>
+  <div class="field">
+    <textarea #value="ngModel" [(ngModel)]="runResult" ></textarea>
+  </div>
+</div>
+
 <div class="ui modal" id="basemodal">
   <i class="close icon"></i>
   <div class="header">
@@ -96,7 +106,7 @@
     <div class="ui row basic segment">
       <div class="five wide column" style="padding: 50px">
         <obstacle-list [(environment)]="environment" (activeIndex)="updateEnvironmentActive($event)"></obstacle-list>
-        <add-obstacle [(types)]="environmetnTypes" (commandAdded)="addObstacle($event)"></add-obstacle>
+        <add-obstacle [(types)]="environmentTypes" (commandAdded)="addObstacle($event)"></add-obstacle>
       </div>
       <div class="eleven wide stretched column" style="padding: 50px">
         <app-environment [obstacle]="environmentActive"></app-environment>

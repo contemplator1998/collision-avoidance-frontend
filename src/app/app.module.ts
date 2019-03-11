@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {SuiDropdownModule, SuiModalModule, SuiSidebarModule} from 'ng2-semantic-ui';
+import {SuiDropdownModule} from 'ng2-semantic-ui';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PoseComponent } from './pose/pose.component';
@@ -14,6 +14,8 @@ import {CapsuleValuesComponent} from './environment/obstacle/capsule/capsule-val
 import {EmptyComponent} from './environment/obstacle/empty/empty.component';
 import {PlaneValuesComponent} from './environment/obstacle/plane/plane-values.component';
 import {ToolListComponent} from './tool/tool-list.component';
+import {RunService} from './service/run.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,10 @@ import {ToolListComponent} from './tool/tool-list.component';
     BrowserModule,
     FormsModule,
     SuiDropdownModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [RunService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

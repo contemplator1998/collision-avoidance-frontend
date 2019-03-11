@@ -11,16 +11,16 @@
 
     <div class="ui one row padded">
       <div class="column" style="margin: 5px; padding-bottom: 10px; width: 180px;">
-        <app-pose name="Begin"></app-pose>
+        <app-pose name="Begin" [(pose)]="poses[0]"></app-pose>
       </div>
       <div class=" column" style="margin: 5px; padding-bottom: 10px; width: 180px;">
-        <app-pose name="End"></app-pose>
+        <app-pose name="End" [(pose)]="poses[1]"></app-pose>
       </div>
     </div>
   </div>
 
   <div class="ui one row padded" style="margin-left: 10px">
-    <app-menu [(base)]="base" [(environment)]="environment" [(toolShape)]="toolShape"></app-menu>
+    <app-menu [(base)]="base" [(environment)]="environment" [(toolShape)]="toolShape" [(poses)]="poses"></app-menu>
   </div>
 </div>
 

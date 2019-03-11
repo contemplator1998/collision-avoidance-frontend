@@ -1,4 +1,3 @@
-
 <div class="content" style="width: 150px">
   <div class="ui main container">
     <div class="ui grid">
@@ -11,32 +10,32 @@
             <div class="ui one column vertical menu">
               <div class="item">
                 <div class="ui transparent input centered center aligned padded">
-                  <input type="text" style="text-align:center;" placeholder="Joint Angle 1">
+                  <input #value="ngModel" [(ngModel)]="pose.a1" type="text" style="text-align:center;" placeholder="Joint Angle 1">
                 </div>
               </div>
               <div class="item">
                 <div class="ui transparent input">
-                  <input type="text" style="text-align:center;" placeholder="Joint Angle 2">
+                  <input #value="ngModel" [(ngModel)]="pose.a2" type="text" style="text-align:center;" placeholder="Joint Angle 2">
                 </div>
               </div>
               <div class="item">
                 <div class="ui transparent input">
-                  <input type="text" style="text-align:center;" placeholder="Joint Angle 3">
+                  <input #value="ngModel" [(ngModel)]="pose.a3" type="text" style="text-align:center;" placeholder="Joint Angle 3">
                 </div>
               </div>
               <div class="item">
                 <div class="ui transparent input">
-                  <input type="text" style="text-align:center;" placeholder="Joint Angle 4">
+                  <input #value="ngModel" [(ngModel)]="pose.a4" type="text" style="text-align:center;" placeholder="Joint Angle 4">
                 </div>
               </div>
               <div class="item">
                 <div class="ui transparent input">
-                  <input type="text" style="text-align:center;" placeholder="Joint Angle 5">
+                  <input #value="ngModel" [(ngModel)]="pose.a5" type="text" style="text-align:center;" placeholder="Joint Angle 5">
                 </div>
               </div>
               <div class="item">
                 <div class="ui transparent input">
-                  <input type="text" style="text-align:center;" placeholder="Joint Angle 6">
+                  <input #value="ngModel" [(ngModel)]="pose.a6" type="text" style="text-align:center;" placeholder="Joint Angle 6">
                 </div>
               </div>
             </div>
@@ -45,4 +44,5 @@
 
       </div>
     </div>
-
+  </div>
+</div>

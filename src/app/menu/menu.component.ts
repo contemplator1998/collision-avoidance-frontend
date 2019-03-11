@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BoxObstacle, CapsuleObstacle, CartesianPosition, Obstacle, ObstacleType, PlaneObstacle} from '../model';
+import {BoxObstacle, CapsuleObstacle, CartesianPosition, Obstacle, ObstacleType, PlaneObstacle, Pose} from '../model';
+import {RunService} from '../service/run.service';
 declare var $:any;
 
 
@@ -14,9 +15,13 @@ export class MenuComponent implements OnInit {
   @Input() environment : Obstacle[];
   @Input() toolShape : CapsuleObstacle[];
   @Input() base : CartesianPosition;
+  @Input() poses : Pose[];
+
+  runResult : String;
+  isRunning = false;
 
 
-  environmetnTypes = [
+  environmentTypes = [
     ObstacleType.CAPSULE,
     ObstacleType.BOX,
     ObstacleType.PLANE
@@ -30,11 +35,24 @@ export class MenuComponent implements OnInit {
   environmentActive : Obstacle;
   toolActive : Obstacle;
 
-  constructor() { }
+  constructor(private runService: RunService) { }
 
   onRunClick() {
-    $('#pause').show();
-    $('#run').hide();
+    if(!this.isRunning) {
+      $('#pause').show();
+      $('#run').hide();
+      this.runService.setBase(this.base);
+      this.runService.setEnvironment(this.environment);
+      this.runService.setToolShape(this.toolShape);
+      this.runService.run(this.poses).subscribe(value => {
+        this.runResult = value;
+        $('#pause').hide();
+        $('#run').show();
+        this.isRunning = false;
+        $('#runmodal').modal('show');
+      });
+      this.isRunning = true;
+    }
   }
   onPauseClick() {
     $('#pause').hide();

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CapsuleObstacle, CartesianPosition, Obstacle, Point, Rotation} from './model';
+import {CapsuleObstacle, CartesianPosition, Obstacle, Point, Pose, Rotation} from './model';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,7 @@ export class AppComponent implements OnInit{
   environment : Obstacle[];
   toolShape : CapsuleObstacle[];
   base : CartesianPosition;
+  poses : Pose[];
 
   ngOnInit(): void {
     this.base = new CartesianPosition();
@@ -18,5 +19,6 @@ export class AppComponent implements OnInit{
     this.base.rotation = new Rotation();
     this.environment = [];
     this.toolShape = [];
+    this.poses = [new Pose(), new Pose()];
   }
 }

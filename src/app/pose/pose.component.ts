@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Pose} from '../model';
 
 
 @Component({
@@ -8,6 +9,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PoseComponent implements OnInit {
   @Input() name: string;
+
+  @Input() pose: Pose;
 
   constructor() {}
 
