@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BoxObstacle, CapsuleObstacle, CartesianPosition, Obstacle, ObstacleType, PlaneObstacle, Pose} from '../model';
+import {BoxObstacle, CapsuleObstacle, CartesianPosition, Obstacle, ObstacleType, PlaneObstacle, Point, Pose, Rotation} from '../model';
 import {RunService} from '../service/run.service';
 declare var $:any;
 
@@ -41,9 +41,9 @@ export class MenuComponent implements OnInit {
     if(!this.isRunning) {
       $('#pause').show();
       $('#run').hide();
-      this.runService.setBase(this.base);
-      this.runService.setEnvironment(this.environment);
-      this.runService.setToolShape(this.toolShape);
+      this.runService.setBase(this.base).subscribe();
+      this.runService.setEnvironment(this.environment).subscribe();
+      this.runService.setToolShape(this.toolShape).subscribe();
       this.runService.run(this.poses).subscribe(value => {
         this.runResult = value;
         $('#pause').hide();
@@ -78,10 +78,20 @@ export class MenuComponent implements OnInit {
     this.updateEnvironmentActive(index);
   }
 
-  addToolShape(){
+  addToolShape() {
     const index = this.toolShape.length;
-    const capsule = new CapsuleObstacle();
-    capsule.name = 'Capsule' + (index + 1);
+    let capsule: CapsuleObstacle;
+    capsule = new CapsuleObstacle();
+    capsule.begin = new Point();
+    capsule.begin.x = 0;
+    capsule.begin.y = 0;
+    capsule.begin.z = 0;
+    capsule.end = new Point();
+    capsule.end.x = 0;
+    capsule.end.y = 0;
+    capsule.end.z = 0;
+    capsule.radius = 0;
+    capsule.name = 'Capsule';
     this.toolShape.splice(index + 1, 0, capsule);
     this.updateToolActive(index);
   }
@@ -90,16 +100,56 @@ export class MenuComponent implements OnInit {
     let obstacle: Obstacle;
     switch (type) {
       case ObstacleType.PLANE:
-        obstacle = new PlaneObstacle();
-        obstacle.name = 'Plane';
+        let plane: PlaneObstacle;
+        plane = new PlaneObstacle();
+        plane.firstPoint = new Point();
+        plane.firstPoint.x = 0;
+        plane.firstPoint.y = 0;
+        plane.firstPoint.z = 0;
+        plane.secondPoint = new Point();
+        plane.secondPoint.x = 0;
+        plane.secondPoint.y = 0;
+        plane.secondPoint.z = 0;
+        plane.thirdPoint = new Point();
+        plane.thirdPoint.x = 0;
+        plane.thirdPoint.y = 0;
+        plane.thirdPoint.z = 0;
+        plane.name = 'Plane';
+        obstacle = plane;
         break;
       case ObstacleType.BOX:
-        obstacle = new BoxObstacle();
-        obstacle.name = 'Box';
+        let box: BoxObstacle;
+        box = new BoxObstacle();
+        box.axisLength = new Point();
+        box.axisLength.x = 0;
+        box.axisLength.y = 0;
+        box.axisLength.z = 0;
+        box.centerPosition = new CartesianPosition();
+        box.centerPosition.point = new Point();
+        box.centerPosition.point.x = 0;
+        box.centerPosition.point.y = 0;
+        box.centerPosition.point.z = 0;
+        box.centerPosition.rotation = new Rotation();
+        box.centerPosition.rotation.roll = 0;
+        box.centerPosition.rotation.pitch = 0;
+        box.centerPosition.rotation.yaw = 0;
+        box.name = 'Box';
+        obstacle = box;
         break;
       case ObstacleType.CAPSULE:
-        obstacle = new CapsuleObstacle();
-        obstacle.name = 'Capsule';
+        let capsule: CapsuleObstacle;
+        capsule = new CapsuleObstacle();
+        capsule.begin = new Point();
+        capsule.begin.x = 0;
+        capsule.begin.y = 0;
+        capsule.begin.z = 0;
+        capsule.end = new Point();
+        capsule.end.x = 0;
+        capsule.end.y = 0;
+        capsule.end.z = 0;
+        capsule.radius = 0;
+        capsule.name = 'Capsule';
+        obstacle = capsule;
         break;
     }
     return obstacle;

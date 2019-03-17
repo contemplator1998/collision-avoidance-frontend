@@ -13,7 +13,7 @@ export class CapsuleObstacle extends Obstacle {
   readonly type = ObstacleType.CAPSULE;
   begin : Point;
   end : Point;
-  radius : Point;
+  radius : number;
 }
 
 export class BoxObstacle extends Obstacle{

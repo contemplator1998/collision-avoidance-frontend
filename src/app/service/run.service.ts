@@ -2,27 +2,27 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {CapsuleObstacle, CartesianPosition, Obstacle, Pose} from '../model';
+import {NONE_TYPE} from '@angular/compiler/src/output/output_ast';
 
 @Injectable()
 export class RunService {
 
-  constructor(private http: HttpClient) { }
-
-  run(poses: Pose[]) : Observable<String> {
-    return this.http.put<String>('/run', poses);
+  constructor(private http: HttpClient) {
   }
 
-  setBase(base : CartesianPosition) {
-      this.http.put<CartesianPosition>('/base', base);
+  run(poses: Pose[]): Observable<string> {
+    return this.http.put<string>('/run', poses);
   }
 
-  setEnvironment(environment : Obstacle[]){
-    this.http.put<Obstacle[]>('/environment', environment);
+  setBase(base: CartesianPosition): Observable<CartesianPosition> {
+    return this.http.put<CartesianPosition>('/base', base);
   }
 
-  setToolShape(toolShape : CapsuleObstacle[]){
-    this.http.put<CapsuleObstacle[]>('/tool', toolShape);
+  setEnvironment(environment: Obstacle[]): Observable<Obstacle[]> {
+    return this.http.put<Obstacle[]>('/environment', environment);
   }
 
-
+  setToolShape(toolShape: CapsuleObstacle[]): Observable<CapsuleObstacle[]> {
+    return this.http.put<CapsuleObstacle[]>('/tool', toolShape);
+  }
 }
